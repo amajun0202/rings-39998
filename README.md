@@ -1,24 +1,78 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false               |
+| encrypted_password | string | null: false, unique: true |
+| introduce          | text   | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :locations
+- has_many :likes
+- has_many :comments
 
-* Configuration
+## locations テーブル
 
-* Database creation
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| title              | string     | null: false                    |
+| estimated_time     | integer    | null: false                    |
+| meal_enter_id      | integer    | null: false                    |
+| cost               | integer    |                                |
+| description        | text       | null: false                    |
+| address            | text       | null: false, unique: true      |
+| phone_number       | string     |                                |
+| nearest_station    | string     |                                |
+| travel_time        | integer    |                                |
+| business_hours     | string     | null: false                    |
+| official_url       | string     |                                |
+| requires_id        | integer    | null: false                    |
+| user               | references | null: false , foreign_key: true|
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :likes
+- has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## likes テーブル
 
-* ...
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false , foreign_key: true|
+| location           | references | null: false , foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to :location
+
+
+## comments テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false , foreign_key: true|
+| location           | references | null: false , foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to :location
+- has_one :rating
+
+
+## ratings テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| comment            | references | null: false , foreign_key: true|
+
+### Association
+
+- belongs_to :comment
