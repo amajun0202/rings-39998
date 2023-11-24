@@ -5,6 +5,44 @@
 .top-page-header{
   width: 100vw;
   height: 60px;
+  padding: 0 15px;
   background-image: url('header2_all.png'); /* 画像のパスhを指定 */
   background-position: center; /* 画像を中央に配置 */
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_title{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 55px;
+  color: rgb(55, 3, 3);
+  animation: textAnimation 3s infinite alternate; /* テキストのアニメーションを追加 */
+}
+
+@keyframes textAnimation {
+  to {
+    transform: translateY(5px); /* アニメーションの変化を指定 */
+  }
+}
+
+.lists-right{
+ width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(55, 3, 3);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.sign-up{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(55, 3, 3);
+  font-family: 'Noto Sans JP', sans-serif;
 }
