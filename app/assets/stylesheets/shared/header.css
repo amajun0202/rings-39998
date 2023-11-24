@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header{
+  width: 100vw;
+  height: 60px;
+  background-image: url('header2_all.png'); /* 画像のパスhを指定 */
+  background-position: center; /* 画像を中央に配置 */
+}
