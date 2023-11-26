@@ -1,0 +1,57 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) 太郎", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+    <span class="email-name">メールアドレス</span>
+    <span class="indispensable">必須</span><br />
+    <%= f.email_field :email, placeholder:"@を含んでください" , autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <span class="password-name">新しいパスワード</span> 
+    <span class="indispensable">必須</span><br />
+    <%= f.password_field :password, placeholder:"6文字以上で英数字", autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <span class="repassword-name">パスワード再入力</span>
+    <span class="indispensable">必須</span><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+   <span class="rerepassword-name">現在のパスワード</span>
+   <span class="indispensable">必須</span><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="explain">
+        <div class="weight-bold-text">
+          自己紹介
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :introduce, class:"introduce-text", id:"introduce-info", placeholder:"自己紹介（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
