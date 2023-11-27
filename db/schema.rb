@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_26_011259) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_27_063443) do
+  create_table "locations", charset: "utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "estimated_time", null: false
+    t.integer "meal_enter_id", null: false
+    t.string "cost"
+    t.text "description", null: false
+    t.text "address", null: false
+    t.string "phone_number"
+    t.string "nearest_station"
+    t.integer "travel_time"
+    t.string "business_hours", null: false
+    t.string "official_url"
+    t.integer "requires_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_26_011259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "locations", "users"
 end
