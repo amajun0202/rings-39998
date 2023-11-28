@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
 
   def index
     
@@ -14,5 +15,5 @@ class LocationsController < ApplicationController
   def location_params_up 
     params.require(:location).permit(:meal_enter_id, :requires_id, :title, :estimated_time, :cost, :description, :address, :phone_number, :nearest_station, :travel_time, :business_hours, :official_url, {images: []})
   end
-  
+
 end
