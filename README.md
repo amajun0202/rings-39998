@@ -20,9 +20,9 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | title              | string     | null: false                    |
-| estimated_time     | integer    | null: false                    |
+| estimated_time     | string     | null: false                    |
 | meal_enter_id      | integer    | null: false                    |
-| cost               | integer    |                                |
+| cost               | string     |                                |
 | description        | text       | null: false                    |
 | address            | text       | null: false, unique: true      |
 | phone_number       | string     |                                |
