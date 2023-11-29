@@ -1,0 +1,42 @@
+<%= form_with model: @location,data: { turbo: false }, local: true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+ 
+  <%= f.text_area :title, class:"items-text", id:"locate-title", placeholder:"タイトル（40文字まで)", maxlength:"40" %>
+    
+   <div class="image-field">
+    <div id="previews">
+      <!-- ここに既存の画像プレビューを表示する処理を追加する -->
+    </div>
+    <div class="click-upload">
+    <%= f.file_field :images, name: 'location[images][]', data: { index: 0 }, multiple: true %>
+    </div>
+  </div>
+ 
+<div>
+  <%= f.text_area :estimated_time, class:"items-text", id:"locate-est-time", placeholder:"その場所での所要時間の目安（例：約2時間）", maxlength:"40" %>
+</div>
+<div>
+  <%= f.collection_select(:meal_enter_id, MealEnter.all, :id, :name, {}, {class:"select-box", id:"locate-meal-enter"}) %>
+</div>
+  <%= f.text_area :cost, class:"items-text", id:"locate-cost", placeholder:"かかる金額(100字まで　例：2000円～4000円)", maxlength:"100" %>
+
+  <%= f.text_area :description, class:"items-text", id:"locate-description", placeholder:"説明（1000文字まで) 魅力や注意点など", rows:"7" ,maxlength:"1000" %>
+
+  <%= f.text_area :address, class:"items-text", id:"locate-address", placeholder:"住所 (ある場合は部屋番号までの記入必須　例：東京都天区綾瀬12-11-12メゾン203)", maxlength:"100" %>
+
+  <%= f.text_area :phone_number, class:"items-text", id:"locate-phone", placeholder:"電話番号（半角数字のみ　ハイフン(-)はいりません", maxlength:"40" %>
+
+  <%= f.text_area :nearest_station, class:"items-text", id:"locate-station", placeholder:"最寄り駅(駅という文字は含めないでください)", maxlength:"20" %>
+
+  <%= f.text_area :travel_time, class:"items-text", id:"locate-travel_time", placeholder:"最寄り駅からの時間（半角英数字のみ）", maxlength:"40" %>
+
+  <%= f.text_area :business_hours, class:"items-text", id:"locate-business-hours", placeholder:"営業時間（例：9時から16時まで)", maxlength:"40" %>
+
+  <%= f.text_area :official_url, class:"items-text", id:"locate-official-url", placeholder:"公式サイトのリンク", maxlength:"100" %>
+
+  <%= f.collection_select(:requires_id, Requires.all, :id, :name, {}, {class:"select-box", id:"locate-requires"}) %>
+
+  <div class="submit-btn">
+    <%= f.submit '送信' %>
+  </div>
+<% end %>
