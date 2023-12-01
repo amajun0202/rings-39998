@@ -18,7 +18,9 @@
 <div>
   <%= f.collection_select(:meal_enter_id, MealEnter.all, :id, :name, {}, {class:"select-box", id:"locate-meal-enter"}) %>
 </div>
-  <%= f.text_area :cost, class:"items-text", id:"locate-cost", placeholder:"かかる金額(100字まで　例：2000円～4000円)", maxlength:"100" %>
+  <%= f.text_area :max_cost, class:"items-text", id:"locate-max-cost", placeholder:"かかる最高金額（半角数字のみ）", maxlength:"100" %>
+
+  <%= f.text_area :min_cost, class:"items-text", id:"locate-min-cost", placeholder:"かかる最低金額（半角数字のみ）", maxlength:"100" %>  
 
   <%= f.text_area :description, class:"items-text", id:"locate-description", placeholder:"説明（1000文字まで) 魅力や注意点など", rows:"7" ,maxlength:"1000" %>
 

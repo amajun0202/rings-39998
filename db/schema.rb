@@ -43,7 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_032113) do
     t.string "title", null: false
     t.string "estimated_time", null: false
     t.integer "meal_enter_id", null: false
-    t.string "cost"
+    t.integer "max_cost", null: false
+    t.integer "min_cost", null: false
     t.text "description", null: false
     t.text "address", null: false
     t.string "phone_number"
