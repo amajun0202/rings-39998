@@ -4,7 +4,8 @@ class CreateLocations < ActiveRecord::Migration[7.0]
       t.string      :title,              null: false
       t.string      :estimated_time,     null: false
       t.integer     :meal_enter_id,      null: false
-      t.string      :cost
+      t.integer     :max_cost,           null: false
+      t.integer     :min_cost,           null: false
       t.text        :description,        null: false
       t.text        :address,            null: false, unique: true
       t.string      :phone_number

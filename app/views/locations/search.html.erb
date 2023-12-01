@@ -1,0 +1,26 @@
+<h1>検索結果</h1>
+<div class="locations-contents">
+    <% @locations.each do |location|%>
+    <div class="locations-content">
+     <%= link_to location_path(location.id) do %>
+
+     <div class="location-img-content">
+      <%= image_tag location.images[0], class: "location-img"%>
+    </div>
+
+     <div class="location-title">
+      <%= location.title%>
+      </div>
+
+     <div class="location-address">
+      <%= location.address%>
+      </div>
+     <% if location.meal_enter_id == 2%>
+      <div class="meal-name-a"><%= location.meal_enter.name %></div>
+      <%else%>
+      <div class="meal-name-b"><%= location.meal_enter.name %></div>
+      <%end%>
+     <%end%>
+      </div>
+    <%end%>
+    </div>

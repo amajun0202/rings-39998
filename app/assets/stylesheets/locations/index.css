@@ -1,4 +1,53 @@
+
+.main{
+  width: 100vw;
+
+}
+
 .search-icon{
   width: 15px;
   height: 15px;
+}
+
+.contents{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+/*投稿の一覧表示*/
+.locations-contents{
+  width: 700px;
+  flex-wrap: wrap;
+ display: flex;
+}
+
+.locations-content{
+ width: 300px;
+ margin-right: 50px;
+ margin-bottom: 10px;
+}
+
+.location-img{
+  width: 300px;
+  height: auto;
+}
+
+.location-img-content{
+  width: 300px;
+}
+
+.location-title{
+  width: 300px;
+}
+.location-address{
+  width: 300px;
+}
+
+.meal-name-a{
+  width: 300px;
+}
+
+.meal-name-b{
+  width: 300px;
 }

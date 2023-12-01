@@ -11,6 +11,8 @@ class Location < ApplicationRecord
   validates :requires_id,    presence: true, numericality: { other_than: 1, message: "を選んでください！" }
   validates :images,         presence: true
   validates :title,          presence: true
+  validates :max_cost,       presence: true, numericality: { only_integer: true, message: "半角数字のみです!"}
+  validates :min_cost,       presence: true, numericality: { only_integer: true, message: "半角数字のみです!"}
   validates :estimated_time, presence: true                          
   validates :description,    presence: true
   validates :address,        presence: true, uniqueness: true
@@ -21,4 +23,12 @@ class Location < ApplicationRecord
   validates :official_url,                   allow_blank: true, format: { with: URI::DEFAULT_PARSER.make_regexp, message: "は正しいURLの形式で入力してください!" }
 
   
+  def self.search(search)
+    if search != ""
+      Location.where('title LIKE(?) OR address LIKE(?) OR nearest_station LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      Location.all
+    end
+  end
+
 end

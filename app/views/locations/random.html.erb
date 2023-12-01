@@ -1,0 +1,49 @@
+<h1>こちらが今回のプランになります！</h1>
+
+<div class="locations-contents">
+    <% @locations.each do |location|%>
+    <div class="locations-content">
+     <%= link_to location_path(location.id) do %>
+
+     <div class="location-img-content">
+      <%= image_tag location.images[0], class: "location-img"%>
+    </div>
+
+     <div class="location-title">
+      <%= location.title%>
+      </div>
+
+     <div class="location-address">
+      <%= location.address%>
+      </div>
+     <% if location.meal_enter_id == 2%>
+      <div class="meal-name-a"><%= location.meal_enter.name %></div>
+      <%else%>
+      <div class="meal-name-b"><%= location.meal_enter.name %></div>
+      <%end%>
+     <%end%>
+      </div>
+    <%end%>
+    </div>
+
+    <div class="sum-cost">
+      <div class="cost-attention">※こちらには交通費は含まれていません。</div>
+      <div class="max-sum">
+      <% sum = 0%>
+      <div class="max-sum-name">このプランにかかる最高額（予想）</div>
+      <% @locations.each do |location|%>
+        <%  sum = sum+ location.max_cost %>
+      <% end %>
+      <%= "#{sum}円" %>
+      </div>
+
+      <div class="min-sum">
+        <% sum = 0%>
+        <div class="max-sum-name">このプランにかかる最低額（予想）</div>
+        <% @locations.each do |location|%>
+         <%  sum = sum+ location.min_cost %>
+        <% end %>
+      <%= "#{sum}円" %>
+      </div>
+
+    </div>
