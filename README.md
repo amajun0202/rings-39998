@@ -22,7 +22,8 @@
 | title              | string     | null: false                    |
 | estimated_time     | string     | null: false                    |
 | meal_enter_id      | integer    | null: false                    |
-| cost               | string     |                                |
+| max_cost           | integer    | null: false                    |
+| min_cost           | integer    | null: false                    |
 | description        | text       | null: false                    |
 | address            | text       | null: false, unique: true      |
 | phone_number       | string     |                                |

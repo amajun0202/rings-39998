@@ -1,0 +1,39 @@
+<%= @location.title%>
+
+
+
+<%= @location.estimated_time%>
+
+<%= @location.meal_enter.name%>
+
+<%= @location.min_cost%>
+
+<%= @location.max_cost%>
+
+<%= @location.description%>
+
+<%= @location.address%>
+
+<% if @location.phone_number.present? %>
+   <%= @location.phone_number%>
+<% else %>
+  <p>公式ウェブサイトはありません。</p>
+<% end %>
+
+<% if @location.phone_number.present? && @location.travel_time.present? %>
+  <%= "#{@location.nearest_station}駅から約#{@location.travel_time}分"%>
+<% else %>
+  <p>最寄り駅の情報はありません。</p>
+<% end %>
+
+<%= @location.business_hours%>
+
+<% if @location.official_url.present? %>
+  <h2>公式ウェブサイト</h2>
+  <%= link_to @location.official_url, @location.official_url, target: "_blank" %>
+<% else %>
+  <p>公式ウェブサイトはありません。</p>
+<% end %>
+
+<%= @location.requires.name%>
+
