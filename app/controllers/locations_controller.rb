@@ -19,6 +19,11 @@ class LocationsController < ApplicationController
     end
   end
 
+  def show
+    @location = Location.find(params[:id])
+    
+  end
+
   def search
     @locations = Location.search(params[:keyword])
   end

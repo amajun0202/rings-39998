@@ -18,9 +18,9 @@
 <div>
   <%= f.collection_select(:meal_enter_id, MealEnter.all, :id, :name, {}, {class:"select-box", id:"locate-meal-enter"}) %>
 </div>
-  <%= f.text_area :max_cost, class:"items-text", id:"locate-max-cost", placeholder:"かかる最高金額（半角数字のみ）", maxlength:"100" %>
+  <%= f.text_field :max_cost, class:"items-text", id:"locate-max-cost", placeholder:"かかる最高金額（半角数字のみ）", maxlength:"100" %>
 
-  <%= f.text_area :min_cost, class:"items-text", id:"locate-min-cost", placeholder:"かかる最低金額（半角数字のみ）", maxlength:"100" %>  
+  <%= f.text_field :min_cost, class:"items-text", id:"locate-min-cost", placeholder:"かかる最低金額（半角数字のみ）", maxlength:"100" %>  
 
   <%= f.text_area :description, class:"items-text", id:"locate-description", placeholder:"説明（1000文字まで) 魅力や注意点など", rows:"7" ,maxlength:"1000" %>
 
@@ -30,7 +30,7 @@
 
   <%= f.text_area :nearest_station, class:"items-text", id:"locate-station", placeholder:"最寄り駅(駅という文字は含めないでください)", maxlength:"20" %>
 
-  <%= f.text_area :travel_time, class:"items-text", id:"locate-travel_time", placeholder:"最寄り駅からの時間（半角英数字のみ）", maxlength:"40" %>
+  <%= f.text_field :travel_time, class:"items-text", id:"locate-travel_time", placeholder:"最寄り駅からの時間（半角英数字のみ）", maxlength:"40" %>
 
   <%= f.text_area :business_hours, class:"items-text", id:"locate-business-hours", placeholder:"営業時間（例：9時から16時まで)", maxlength:"40" %>
 
