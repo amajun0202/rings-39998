@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :signed_user, only: [:edit]
 
   def index
     @locations = Location.limit(12).order("created_at DESC")
@@ -21,7 +22,6 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    
   end
 
   def search
@@ -53,5 +53,9 @@ class LocationsController < ApplicationController
 
   meal_enter_1_items.to_a + meal_enter_2_items.to_a
  end
+
+ def specified_user
+  redirect_to root_path unless user_signed_in?
+end
 
  end
