@@ -24,6 +24,27 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update  
+    @location = Location.find(params[:id])
+  if @location.update(location_params_up )
+    redirect_to location_path(@location.id)
+  else
+    render :edit, status: :unprocessable_entity
+  end
+end
+
+def destroy
+  @location = Location.find(params[:id])
+  if current_user.id == @location.user.id
+  @location.destroy
+  redirect_to root_path
+  end
+end
+
   def search
     @locations = Location.search(params[:keyword])
   end
@@ -54,8 +75,10 @@ class LocationsController < ApplicationController
   meal_enter_1_items.to_a + meal_enter_2_items.to_a
  end
 
- def specified_user
-  redirect_to root_path unless user_signed_in?
+ def signed_user
+   unless signed_in?
+    redirect_to root_path
+   end
 end
 
  end

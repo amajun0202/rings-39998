@@ -1,6 +1,24 @@
+<% if user_signed_in? %>
+
+    <%= link_to "編集", edit_location_path(@location.id), method: :get, class: "location-red-btn" %>
+    <% if current_user.id == @location.user.id %>
+    <p class="or-text">or</p>
+    <%= link_to "1click削除", location_path(@location.id), data: { turbo_method: :delete }, class:"location-destroy" %>
+  <% end %>
+
+<% end %>
+
 <%= @location.title%>
 
-
+<div class="posted-content">
+  <%= image_tag @location.images[0], class: "main-image" %><br>
+  <div class="other-images">
+    <% @location.images[1..-1].each do |image| %>
+      <div class="other-image">
+        <%= image_tag image %>
+      </div>
+    <%end%>
+  </div>
 
 
 
