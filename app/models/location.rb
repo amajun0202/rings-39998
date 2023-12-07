@@ -1,6 +1,7 @@
 class Location < ApplicationRecord
   require 'active_hash'
   belongs_to :user
+  has_many :likes
   has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -29,6 +30,10 @@ class Location < ApplicationRecord
     else
       Location.all
     end
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 
 end

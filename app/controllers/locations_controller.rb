@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
-  before_action :signed_user, only: [:edit]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit]
+ 
 
   def index
     @locations = Location.limit(12).order("created_at DESC")
@@ -74,11 +74,5 @@ end
 
   meal_enter_1_items.to_a + meal_enter_2_items.to_a
  end
-
- def signed_user
-   unless signed_in?
-    redirect_to root_path
-   end
-end
 
  end

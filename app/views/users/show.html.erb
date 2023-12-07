@@ -24,8 +24,11 @@
 
 
 <% if current_user.id == @user.id %>
+    <%= link_to "お気に入り一覧", user_likes_path(@user.id), method: :get, class: "likes-show-btn" %>
     <%= link_to "アカウント編集", edit_user_registration_path, method: :get, class: "edit-btn" %>
-    <p class="or-text">or</p>
+    
     <%= link_to "1clickアカウント削除",  user_registration_path, data: { turbo_method: :delete }, class:"destroy-btn" %>
   <% end %>
+
+
 

@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
-
+    
     <%= link_to "編集", edit_location_path(@location.id), method: :get, class: "location-red-btn" %>
-    <% if current_user.id == @location.user.id %>
+    <%if current_user.id == @location.user.id%>
     <p class="or-text">or</p>
     <%= link_to "1click削除", location_path(@location.id), data: { turbo_method: :delete }, class:"location-destroy" %>
-  <% end %>
+    <%end%>
 
 <% end %>
 
@@ -57,3 +57,16 @@
 
 <%= @location.requires.name%>
 
+<%= @location.user.nickname%>
+
+<div id="like-btn<%= @location.id %>">
+  <% if user_signed_in? && @location.liked_by?(current_user) %>
+    <%= link_to likes_path(@location.id), method: :delete, data: { turbo_method: :delete }, class: "location_likes" do %>
+      <i class="fas fa-heart"></i> お気に入り登録済
+    <% end %>
+  <% else %>
+    <%= link_to likes_path(@location.id), method: :post, data: { turbo_method: :post }, class: "location_likes" do %>
+      <i class="far fa-heart"></i> お気に入り登録する
+    <% end %>
+  <% end %>
+</div>
