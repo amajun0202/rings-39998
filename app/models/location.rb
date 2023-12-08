@@ -2,6 +2,7 @@ class Location < ApplicationRecord
   require 'active_hash'
   belongs_to :user
   has_many :likes
+  has_many :comments
   has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions

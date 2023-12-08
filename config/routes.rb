@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   end
   root "locations#index"
   resources :locations do
-
     member do
-      resource :likes, only: [:create, :destroy]
+      resource :likes,     only: [:create, :destroy]
+      resources :comments, only: [:create, :show]
     end
 
     collection do
       get 'search'
       get 'random'
     end
-
   end
+
 end

@@ -59,14 +59,40 @@
 
 <%= @location.user.nickname%>
 
-<div id="like-btn<%= @location.id %>">
-  <% if user_signed_in? && @location.liked_by?(current_user) %>
+<% if user_signed_in? %>
+    
+  <div id="like-btn<%= @location.id %>">
+   <% if user_signed_in? && @location.liked_by?(current_user) %>
     <%= link_to likes_path(@location.id), method: :delete, data: { turbo_method: :delete }, class: "location_likes" do %>
       <i class="fas fa-heart"></i> お気に入り登録済
     <% end %>
-  <% else %>
+    <% else %>
     <%= link_to likes_path(@location.id), method: :post, data: { turbo_method: :post }, class: "location_likes" do %>
       <i class="far fa-heart"></i> お気に入り登録する
     <% end %>
-  <% end %>
-</div>
+   <% end %>
+  </div>
+<% end %>
+
+<div class="container">
+    <% if user_signed_in? %>
+    <%= form_with model: @comment, local: true do |f| %>
+        <%= f.hidden_field :location_id, value: @location.id %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "送信" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
+
+  <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+

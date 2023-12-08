@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :locations
+  has_many :comments
   has_many :likes
   has_many :liked_locations, through: :likes, source: :location
   # Include default devise modules. Others available are:
