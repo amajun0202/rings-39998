@@ -78,3 +78,4 @@
 ### Association
 
 - belongs_to :comment
+-
