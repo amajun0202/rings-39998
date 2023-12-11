@@ -1,23 +1,41 @@
 <%= render "shared_a/header" %>
 
+
 <div class="main">
+
+  <div class="main-top">
+   
+   <div class="search-main">
    <%= form_with(url: search_locations_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+     <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+     <%= form.submit "検索", class: "search-btn" %>
+   <% end %>
+     </div>
+   
+   <h2>
+      Ringsのご紹介
+    </h2>
 
- <%= form_with(url: random_locations_path, local: true, method: :get, class: "random-form") do |form| %>
-  <%= form.text_field :search, placeholder: "地名をご入力ください", class: "search-b" %>
-  <%= form.label :key, 'Key for meal_enter_id 2' %>
-  <%= form.number_field :key, class: 'form-control' %>
+   <div class="introduction">
+    
+    <p class="introduction-p">①皆さまのおすすめのスポットを投稿、閲覧することができます！</p>
+    <p class="introduction-p"><span class="two">②</span><span class="heart">「外出したいけど行きたいところがない…」</span><br>
+      <span class="heart">　「遊ぶ場所はいつもの場所でマンネリ…」<br></span>
+      <span class="heart">　「内容を知らないで刺激的な1日を過ごしたい！」<br></span>
+      <span class="heart">　「下調べが面倒…プランを決めてほしい」など<br></span>
+    </p>
+      <p class="introduction-p"> 　これらの悩みを解消するため、<span class="system">1日のプランを一瞬で決めてくれるシステム</span>を導入しました！</p>
+    <p class="introduction-p">③投稿の情報が最新のものへ早く更新できるように、<span class="system">誰でも編集可能</span>です！</p>
+   </div>
 
-  <%= form.label :key_b, 'Key for meal_enter_id 3' %>
-  <%= form.number_field :key_b, class: 'form-control' %>
+  </div>
+ 
+  <div class="location-send"><%= link_to '投稿はこちらから', new_location_path, class: "location-btn" %></div>
 
-  <%= form.submit 'Get Random Items', class: 'btn btn-primary' %>
-<% end %>
+<h2 class="content-t">
+  最新の投稿一覧
+</h2>
 
-    <div><%= link_to '投稿ボタン', new_location_path, class: "location-btn" %></div>
 <div class="contents">
 
   <div class="locations-contents">
@@ -28,7 +46,7 @@
      <div class="location-img-content">
       <%= image_tag location.images[0], class: "location-img"%>
     </div>
-
+    <div class="not-image">
      <div class="location-title">
       <%= location.title%>
       </div>
@@ -41,10 +59,50 @@
       <%else%>
       <div class="meal-name-b"><%= location.meal_enter.name %></div>
       <%end%>
+      </div>
      <%end%>
       </div>
     <%end%>
     </div>
+
 </div>
 
+<h2><span>Plan-assist</span>の利用方法</h2>
+<div class="introduction">
+  
+  <p class="introduction-p">①食事系と娯楽系の数を決めます。<br>
+    　食事系（例：朝昼夜3食の場合は3と選択）<br>
+    　娯楽系（例：遊ぶ場所に2つ行きたい場合は2と選択）<br>
+    　[<span class="attention">注意</span>]娯楽系と食事系は入力が必須です。0の場合は0と入力してください。
+    </p>
+    <p class="introduction-p">②地名の入力は任意です。<br>
+    　地名は最低でも都道府県単位での入力を推奨しています！</p>
+    <p class="introduction-p">③スポット登録されている数より入力した数が多い場合少なく出ます。ご了承ください。</p>
   </div>
+
+<div class="main-footer">
+    
+  <%= form_with(url: random_locations_path, local: true, method: :get, class: "random-form") do |form| %>
+  <h1 class="plan-name">Plan-assist</h1>
+    <div class="form-group">
+      <%= form.text_field :search, placeholder: "地名をご入力ください", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :key, '食事系' %>
+      <%= form.number_field :key, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :key_b, '娯楽系' %>
+      <%= form.number_field :key_b, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit '決定', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+</div>
+<%= render "shared_a/fotter" %>

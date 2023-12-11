@@ -4,7 +4,7 @@
 
 .top-page-header{
   width: 100vw;
-  height: 60px;
+  height: 15vh;
   padding: 0 15px;
   background-image: url('header2_all.png'); /* 画像のパスhを指定 */
   background-position: center; /* 画像を中央に配置 */
@@ -34,6 +34,9 @@
 }
 
 .login{
+  background-color: #ffff;
+  border-radius: 10px;
+  padding: 2px;
   text-decoration: none;
   font-size: 20px;
   color: rgb(55, 3, 3);
@@ -41,6 +44,9 @@
 }
 
 .sign-up{
+  background-color: #ffff;
+  border-radius: 10px;
+  padding: 2px;
   text-decoration: none;
   font-size: 20px;
   color: rgb(55, 3, 3);

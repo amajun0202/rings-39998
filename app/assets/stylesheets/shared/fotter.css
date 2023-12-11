@@ -1,0 +1,8 @@
+.fotter{
+  width: 100vw;
+  height:15vh;
+  padding: 0 15px;
+  background: url('header2_all.png') center/cover; /* 画像のパスを指定 */
+  transform: scaleY(-1); /* 画像を上下反転 */
+
+}
