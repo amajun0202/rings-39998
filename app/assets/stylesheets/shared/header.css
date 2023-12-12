@@ -15,8 +15,12 @@
 .header_title{
   font-family: 'Open Sans', sans-serif;
   font-size: 55px;
-  color: rgb(55, 3, 3);
   animation: textAnimation 3s infinite alternate; /* テキストのアニメーションを追加 */
+}
+
+.h-title-h{
+  text-decoration: none;
+  color: rgb(55, 3, 3);
 }
 
 @keyframes textAnimation {
