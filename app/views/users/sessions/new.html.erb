@@ -1,6 +1,7 @@
 <%= render "shared_a/header_u" %>
 
-<h2>Log in</h2>
+<div class="s-n-main">
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
@@ -25,10 +26,12 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログインする" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</div>
 
 <%= render "shared_a/fotter" %>
