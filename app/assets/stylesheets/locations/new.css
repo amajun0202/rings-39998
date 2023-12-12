@@ -1,5 +1,34 @@
+/* 新規投稿フォームのスタイル */
+.items-text, .select-box, .submit-btn {
+  margin-bottom: 15px;
+}
+
+/* テキストエリアのスタイル */
+.items-text {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* セレクトボックスのスタイル */
+.select-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 送信ボタンのスタイル */
+.submit-btn {
+  text-align: center;
+}
+
+/* ファイルアップロードフィールドのスタイル */
 .image-field{
   width: 100vw;
-  height: 300px;
+  height: 400px;
   margin-bottom: 20px;
 }

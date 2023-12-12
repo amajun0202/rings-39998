@@ -1,7 +1,11 @@
+<%= render "shared_a/header" %>
+
+<h2>おすすめスポット投稿</h2>
+
 <%= form_with model: @location,data: { turbo: false }, local: true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
  
-  <%= f.text_area :title, class:"items-text", id:"locate-title", placeholder:"タイトル（40文字まで)", maxlength:"40" %>
+  <%= f.text_area :title, class:"items-text", id:"locate-title", placeholder:"必須　タイトル（40文字まで)", maxlength:"40" %>
     
    <div class="image-field">
     <div id="previews">
@@ -13,28 +17,28 @@
   </div>
  
 <div>
-  <%= f.text_area :estimated_time, class:"items-text", id:"locate-est-time", placeholder:"その場所での所要時間の目安（例：約2時間）", maxlength:"40" %>
+  <%= f.text_area :estimated_time, class:"items-text", id:"locate-est-time", placeholder:"必須　その場所での所要時間の目安（例：約2時間）", maxlength:"40" %>
 </div>
 <div>
   <%= f.collection_select(:meal_enter_id, MealEnter.all, :id, :name, {}, {class:"select-box", id:"locate-meal-enter"}) %>
 </div>
-  <%= f.text_field :max_cost, class:"items-text", id:"locate-max-cost", placeholder:"かかる最高金額（半角数字のみ）", maxlength:"100" %>
+  <%= f.text_field :max_cost, class:"items-text", id:"locate-max-cost", placeholder:"必須　かかる最高金額（半角数字のみ）", maxlength:"100" %>
 
-  <%= f.text_field :min_cost, class:"items-text", id:"locate-min-cost", placeholder:"かかる最低金額（半角数字のみ）", maxlength:"100" %>  
+  <%= f.text_field :min_cost, class:"items-text", id:"locate-min-cost", placeholder:"必須　かかる最低金額（半角数字のみ）", maxlength:"100" %>  
 
-  <%= f.text_area :description, class:"items-text", id:"locate-description", placeholder:"説明（1000文字まで) 魅力や注意点など", rows:"7" ,maxlength:"1000" %>
+  <%= f.text_area :description, class:"items-text", id:"locate-description", placeholder:"必須　説明（1000文字まで) 魅力や注意点など", rows:"7" ,maxlength:"1000" %>
 
-  <%= f.text_area :address, class:"items-text", id:"locate-address", placeholder:"住所 (ある場合は部屋番号までの記入必須　例：東京都天区綾瀬12-11-12メゾン203)", maxlength:"100" %>
+  <%= f.text_area :address, class:"items-text", id:"locate-address", placeholder:"必須　住所 (ある場合は部屋番号までの記入必須　例：東京都天区綾瀬12-11-12メゾン203)", maxlength:"100" %>
 
-  <%= f.text_area :phone_number, class:"items-text", id:"locate-phone", placeholder:"電話番号（半角数字のみ　ハイフン(-)はいりません", maxlength:"40" %>
+  <%= f.text_area :phone_number, class:"items-text", id:"locate-phone", placeholder:"任意　電話番号（半角数字のみ　ハイフン(-)はいりません）", maxlength:"40" %>
 
-  <%= f.text_area :nearest_station, class:"items-text", id:"locate-station", placeholder:"最寄り駅(駅という文字は含めないでください)", maxlength:"20" %>
+  <%= f.text_area :nearest_station, class:"items-text", id:"locate-station", placeholder:"任意　最寄り駅(駅という文字は含めないでください)", maxlength:"20" %>
 
-  <%= f.text_field :travel_time, class:"items-text", id:"locate-travel_time", placeholder:"最寄り駅からの時間（半角英数字のみ）", maxlength:"40" %>
+  <%= f.text_field :travel_time, class:"items-text", id:"locate-travel_time", placeholder:"任意　最寄り駅からの時間（半角英数字のみ）", maxlength:"40" %>
 
-  <%= f.text_area :business_hours, class:"items-text", id:"locate-business-hours", placeholder:"営業時間（例：9時から16時まで)", maxlength:"40" %>
+  <%= f.text_area :business_hours, class:"items-text", id:"locate-business-hours", placeholder:"必須　営業時間（例：9時から16時まで)", maxlength:"40" %>
 
-  <%= f.text_area :official_url, class:"items-text", id:"locate-official-url", placeholder:"公式サイトのリンク", maxlength:"100" %>
+  <%= f.text_area :official_url, class:"items-text", id:"locate-official-url", placeholder:"任意　公式サイトのリンク", maxlength:"100" %>
 
   <%= f.collection_select(:requires_id, Requires.all, :id, :name, {}, {class:"select-box", id:"locate-requires"}) %>
 
@@ -42,3 +46,5 @@
     <%= f.submit '送信' %>
   </div>
 <% end %>
+
+<%= render "shared_a/fotter" %>

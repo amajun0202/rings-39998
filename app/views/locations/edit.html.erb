@@ -1,3 +1,7 @@
+<%= render "shared_a/header" %>
+
+<h2>おすすめスポット編集</h2>
+
 <%= form_with model: @location,data: { turbo: false }, local: true, html: { multipart: true } do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
  
@@ -35,3 +39,5 @@
     <%= f.submit '送信' %>
   </div>
 <% end %>
+
+<%= render "shared_a/fotter" %>
