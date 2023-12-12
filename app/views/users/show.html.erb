@@ -1,8 +1,11 @@
 <%= render "shared_a/header" %>
 
-<div class="profile-title">
-  <%="#{@user.nickname}様のプロフィール" %>
-</div>
+
+<div class="main-user-s">
+ <div class="user-prof">
+ <div class="profile-title">
+   <%="#{@user.nickname}様のプロフィール" %>
+ </div>
 
 <% if current_user.id == @user.id %>
   <div class="promail-title">
@@ -29,6 +32,10 @@
     
     <%= link_to "1clickアカウント削除",  user_registration_path, data: { turbo_method: :delete }, class:"destroy-btn" %>
   <% end %>
+
+</div>
+</div>
+  <%= render "shared_a/fotter" %>
 
 
 
