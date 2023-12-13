@@ -53,10 +53,16 @@ end
 
   def random
      
-    @key = params[:key]
-    @key_b = params[:key_b]
+    @key = params[:key].to_i
+    @key_b = params[:key_b].to_i
     @search = params[:search]
+    if @key<0 || @key_b<0
+      redirect_to root_path
+    elsif @key.nil? || @key_b.nil?
+      redirect_to root_path
+    else
     @locations = random_items_by_meal_enter(@search,@key, @key_b)
+    end
     
   end
 
