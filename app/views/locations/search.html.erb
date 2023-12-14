@@ -1,4 +1,6 @@
-<h1>検索結果</h1>
+<%= render "shared_a/header" %>
+
+<h2>検索結果</h2>
 <div class="locations-contents">
     <% @locations.each do |location|%>
     <div class="locations-content">
@@ -24,3 +26,4 @@
       </div>
     <%end%>
     </div>
+    <%= render "shared_a/fotter" %>

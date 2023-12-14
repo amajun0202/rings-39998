@@ -1,63 +1,136 @@
-<% if user_signed_in? %>
+<%= render "shared_a/header" %>
+
+<div class="location-show-main">
+
+  <div class="location-show-left">
+   <div class="show-btn">
+   <% if user_signed_in? %>
     
-    <%= link_to "編集", edit_location_path(@location.id), method: :get, class: "location-red-btn" %>
+    <%= link_to "編集", edit_location_path(@location.id), method: :get, class: "location-edit-btn" %>
     <%if current_user.id == @location.user.id%>
-    <p class="or-text">or</p>
-    <%= link_to "1click削除", location_path(@location.id), data: { turbo_method: :delete }, class:"location-destroy" %>
+    <%= link_to "1click削除", location_path(@location.id), data: { turbo_method: :delete }, class:"location-destroy-btn " %>
     <%end%>
 
-<% end %>
+   <% end %>
+   </div>
+<div class="locaton-show-title-m">
+<p class="location-show-title"><%= "【#{@location.title}】"%></p>
+</div>
 
-<%= @location.title%>
 
 <div class="posted-content">
-  <%= image_tag @location.images[0], class: "main-image" %><br>
+  <%= image_tag @location.images[0], class: "mySlides main-image fade" %><br>
   <div class="other-images">
-    <% @location.images[1..-1].each do |image| %>
-      <div class="other-image">
-        <%= image_tag image %>
-      </div>
-    <%end%>
+    <% @location.images[1..-1].each_with_index do |image, index| %>
+      <%= image_tag image, class: "mySlides other-image fade", data: { slide_index: index + 1 } %>
+    <% end %>
   </div>
+</div>
+
+<!-- JS -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 5000); 
+    }
+  });
+</script>
 
 
 
-<%= @location.estimated_time%>
+<table class="show-table">
+  <tr>
+  <th class="estimated-time-des">所要時間</th>
+<td class="show-estimated-time"><%= @location.estimated_time%></td>
+</tr>
 
-<%= @location.meal_enter.name%>
+<tr>
+  <th>食事 or 娯楽</th>
+ <td><%= @location.meal_enter.name%></td>
+</tr>
 
-<%= @location.min_cost%>
+<tr>
+  <th>最安値の場合</th>
+  <td><%= "#{@location.min_cost}円"%></td>
+</tr>
 
-<%= @location.max_cost%>
+<tr>
+  <th>最高値の場合</th>
+  <td><%= "#{@location.max_cost}円"%></td>
+</tr>
 
-<%= @location.description%>
+<tr>
+  <th>説明</th>
+  <td><%= @location.description%></td>
+</tr>
 
-<%= @location.address%>
+<tr>
+  <th>住所</th>
+  <td><%= @location.address%></td>
+</tr>
 
-<% if @location.phone_number.present? %>
-   <%= @location.phone_number%>
-<% else %>
-  <p>公式ウェブサイトはありません。</p>
-<% end %>
+<tr>
+  <th>電話番号</th>
+  <td>
+    <% if @location.phone_number.present? %>
+      <%= @location.phone_number%>
+    <% else %>
+      <p>電話番号はありません。</p>
+    <% end %>
+</td>
+</tr>
 
-<% if @location.phone_number.present? && @location.travel_time.present? %>
-  <%= "#{@location.nearest_station}駅から約#{@location.travel_time}分"%>
-<% else %>
-  <p>最寄り駅の情報はありません。</p>
-<% end %>
+<tr>
+  <th>最寄り駅</th>
+  <td>
+    <% if @location.phone_number.present? && @location.travel_time.present? %>
+      <%= "#{@location.nearest_station}駅から約#{@location.travel_time}分"%>
+    <% else %>
+      <p>最寄り駅の情報はありません。</p>
+    <% end %>
+  </td>
+</tr>
 
-<%= @location.business_hours%>
+<tr>
+  <th>営業時間</th>
+  <td><%= @location.business_hours%></td>
+</tr>
 
-<% if @location.official_url.present? %>
-  <h2>公式ウェブサイト</h2>
-  <%= link_to @location.official_url, @location.official_url, target: "_blank" %>
-<% else %>
-  <p>公式ウェブサイトはありません。</p>
-<% end %>
+<tr>
+  <th>公式ウェブサイト</th>
+  <td>
+    <% if @location.official_url.present? %>
+      <%= link_to @location.official_url, @location.official_url, target: "_blank" %>
+    <% else %>
+      <p>公式ウェブサイトはありません。</p>
+    <% end %>
+  </td>
+</tr>
 
-<%= @location.requires.name%>
+<tr>
+  <th>予約の有無</th>
+  <td><%= @location.requires.name%></td>
+</tr>
 
-<%= @location.user.nickname%>
+<tr>
+  <th>投稿者</th>
+  <td><%= link_to @location.user.nickname, user_path(@location.user.id), class: "location-user-path"%></td>
+</tr>
+
+</table>
 
 <% if user_signed_in? %>
     
@@ -73,7 +146,11 @@
    <% end %>
   </div>
 <% end %>
+</div>
 
+
+
+<div class="location-show-right">
 <div class="container">
     <% if user_signed_in? %>
     <%= form_with model: @comment, local: true do |f| %>
@@ -95,4 +172,8 @@
         </p>
       <% end %>
     </div>
+    </div>
+    </div>
+</div>
 
+    

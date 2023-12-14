@@ -1,0 +1,114 @@
+.location-show-main{
+  width: 100vw;
+  display: flex;
+}
+
+.location-show-left{
+  width: 80%;
+}
+
+.location-show-right{
+  width: 20%;
+}
+
+/*編集、削除ボタン*/
+.show-btn {
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.location-edit-btn,
+.location-destroy-btn {
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+
+.location-edit-btn {
+  background-color: #4caf50; 
+}
+
+
+.location-destroy-btn {
+  background-color: #f44336; 
+}
+
+/*タイトル*/
+.locaton-show-title-m {
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.location-show-title {
+  border-radius: 10px;
+  margin:5px;
+  padding: 5px;
+  display: inline-block;
+  font-size: 40px; 
+  font-weight: bold;
+  color: black; 
+}
+
+/*images*/
+.posted-content {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.main-image {
+  margin: 0 auto;
+  border-radius: 10px;
+  display: block;
+  width: 90%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.other-image {
+  margin: 5px auto;
+  border-radius: 10px;
+  display: none; 
+  width: 90%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* フェードイン・アウトのアニメーション */
+.fade {
+  animation: fade 5s ease-in-out infinite; 
+  opacity: 1;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/*表*/
+.show-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.show-table th, .show-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.show-table th {
+  background-color: #f2f2f2;
+}
+
