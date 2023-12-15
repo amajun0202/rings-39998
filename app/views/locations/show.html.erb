@@ -96,7 +96,7 @@
 <tr>
   <th>最寄り駅</th>
   <td>
-    <% if @location.phone_number.present? && @location.travel_time.present? %>
+    <% if @location.nearest_station? && @location.travel_time.present? %>
       <%= "#{@location.nearest_station}駅から約#{@location.travel_time}分"%>
     <% else %>
       <p>最寄り駅の情報はありません。</p>

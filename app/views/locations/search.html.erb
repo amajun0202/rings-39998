@@ -1,5 +1,6 @@
 <%= render "shared_a/header" %>
 
+<div class="search-mm">
 <h2>検索結果</h2>
 <div class="locations-contents">
     <% @locations.each do |location|%>
@@ -25,5 +26,6 @@
      <%end%>
       </div>
     <%end%>
+    </div>
     </div>
     <%= render "shared_a/fotter" %>

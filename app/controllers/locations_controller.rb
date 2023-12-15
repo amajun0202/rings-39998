@@ -79,8 +79,8 @@ end
   end
 
   def random_items_by_meal_enter(search, key, key_b)
-  meal_enter_1_items = Location.where('address LIKE ?', "%#{search}%").where(meal_enter_id: 2).order("RAND()").limit(key)
-  meal_enter_2_items = Location.where('address LIKE ?', "%#{search}%").where(meal_enter_id: 3).order("RAND()").limit(key_b)
+  meal_enter_1_items = Location.where('address LIKE ? OR nearest_station LIKE ?', "%#{search}%", "%#{search}%").where(meal_enter_id: 2).order("random()").limit(key)
+  meal_enter_2_items = Location.where('address LIKE ? OR nearest_station LIKE ?', "%#{search}%", "%#{search}%").where(meal_enter_id: 3).order("random()").limit(key_b)
 
   meal_enter_1_items.to_a + meal_enter_2_items.to_a
  end
