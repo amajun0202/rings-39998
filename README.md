@@ -87,6 +87,11 @@ https://rings.onrender.com
 # 工夫したポイント
 - どの年代の方でも使いやすいようにシンプルな見た目と使い方の説明
 - 見やすいようにするため、シンプルな見た目と優しい色にした
+- すぐに予定を決められるように3つの条件選択ととかかる費用を出力できるようにした
+
+# テスト
+## User単体テスト
+[![Image from Gyazo](https://i.gyazo.com/365abf9148ae2fedd99d1bd282a083f0.png)](https://gyazo.com/365abf9148ae2fedd99d1bd282a083f0)
 
 # テーブル設計
 
