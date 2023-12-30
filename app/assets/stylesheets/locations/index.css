@@ -83,7 +83,6 @@ h2:before {
 
 /*投稿ボタン*/
 
-
 .location-send{
   width: 30vw;
   height:10vh;
@@ -92,6 +91,7 @@ h2:before {
 }
 
 .location-btn {
+  width: 100%;
   display: inline-block;
   padding: 10px 20px;
   font-size: 30px;
