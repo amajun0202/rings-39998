@@ -32,3 +32,29 @@
   height: 400px;
   margin-bottom: 20px;
 }
+
+/*記入欄の各名称のスタイル*/
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic'), local('YuGothic') ;
+  font-weight: 400;
+}
+
+.location-new-name {
+  font-family: 'Yu Gothic', sans-serif;
+  font-size: 24px; 
+  font-weight: bold; 
+  margin-bottom: 8px; 
+}
+
+.essential {
+  font-family: 'Yu Gothic', sans-serif;
+  font-size: 15px;
+  color: #FF0000; 
+}
+
+.optional {
+  font-family: 'Yu Gothic', sans-serif;
+  font-size: 15px;
+  color: #808080; 
+}
