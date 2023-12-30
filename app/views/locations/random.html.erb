@@ -1,6 +1,6 @@
 <%= render "shared_a/header" %>
 
-<% if @location.nil? %>
+<% if @locations.nil? %>
   <h2>今回の場所にヒットするプランはありませんでした
   </h2>
 <% else %>
@@ -35,7 +35,7 @@
     <%end%>
     </div>
 
-<% unless @location.nil? %>
+<% unless @locations.nil? %>
     <div class="sum-cost">
       <div class="random-sum">
       <div class="cost-attention">※こちらには交通費は含まれていません。</div>
