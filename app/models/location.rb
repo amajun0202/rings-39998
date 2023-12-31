@@ -9,20 +9,20 @@ class Location < ApplicationRecord
   belongs_to :meal_enter
   belongs_to :requires
 
-  validates :meal_enter_id,  presence: true, numericality: { other_than: 1, message: "を選んでください！" }
-  validates :requires_id,    presence: true, numericality: { other_than: 1, message: "を選んでください！" }
+  validates :meal_enter_id,  presence: true, numericality: { other_than: 1, message: "を選んでください" }
+  validates :requires_id,    presence: true, numericality: { other_than: 1, message: "を選んでください" }
   validates :images,         presence: true
   validates :title,          presence: true
-  validates :max_cost,       presence: true, numericality: { only_integer: true, message: "半角数字のみです!"}
-  validates :min_cost,       presence: true, numericality: { only_integer: true, message: "半角数字のみです!"}
+  validates :max_cost,       presence: true, numericality: { only_integer: true, message: "は半角数字のみです"}
+  validates :min_cost,       presence: true, numericality: { only_integer: true, message: "は半角数字のみです"}
   validates :estimated_time, presence: true                          
   validates :description,    presence: true
   validates :address,        presence: true, uniqueness: true
-  validates :phone_number,                   allow_blank: true, numericality: { only_integer: true, message: "半角数字のみです!"}, length: { in: 10..11, message: "正しい電話番号をお願いします!"}
+  validates :phone_number,                   allow_blank: true, numericality: { only_integer: true, message: "は半角数字のみです"}, length: { in: 10..11, message: "は正しいものをお願いします"}
   validates :nearest_station,                allow_blank: true, format: { without: /駅/, message: "には「駅」を含めないでください" }
-  validates :travel_time,                    allow_blank: true, numericality: { only_integer: true, message: "半角数字のみです!"}
+  validates :travel_time,                    allow_blank: true, numericality: { only_integer: true, message: "は半角数字のみです"}
   validates :business_hours, presence: true
-  validates :official_url,                   allow_blank: true, format: { with: URI::DEFAULT_PARSER.make_regexp, message: "は正しいURLの形式で入力してください!" }
+  validates :official_url,                   allow_blank: true, format: { with: URI::DEFAULT_PARSER.make_regexp, message: "は正しいURLの形式で入力してください" }
 
   
   def self.search(search)

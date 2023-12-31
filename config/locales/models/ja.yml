@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      location: スポット
+    attributes:
+      location:
+        images: 画像
+        title: タイトル
+        estimated_time: 所要時間
+        meal_enter_id: 娯楽系か食事系
+        max_cost: 必要な金額(最高) 
+        min_cost: 必要な金額(最安)
+        description: 説明
+        address: 住所
+        phone_number: 電話番号
+        nearest_station: 最寄り駅名
+        travel_time: 最寄駅からの時間
+        business_hours: 営業時間
+        official_url: 公式サイトのリンク
+        requires_id: 予約の有無
