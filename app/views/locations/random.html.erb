@@ -1,14 +1,13 @@
 <%= render "shared_a/header" %>
 
-<% if @locations.nil? %>
+
+<div class="rand-main">
+  <% if @locations.nil? || @locations.empty? %>
   <h2>今回の場所にヒットするプランはありませんでした
   </h2>
 <% else %>
 <h2>こちらが今回のプランになります！</h2>
-<% end %>
 
-<div class="rand-main">
-  
 <div class="locations-contents">
     <% @locations.each do |location|%>
     <div class="locations-content">
@@ -35,7 +34,6 @@
     <%end%>
     </div>
 
-<% unless @locations.nil? %>
     <div class="sum-cost">
       <div class="random-sum">
       <div class="cost-attention">※こちらには交通費は含まれていません。</div>

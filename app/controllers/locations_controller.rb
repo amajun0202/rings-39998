@@ -82,7 +82,8 @@ end
   meal_enter_1_items = Location.where('address LIKE ? OR nearest_station LIKE ?', "%#{search}%", "%#{search}%").where(meal_enter_id: 2).order("random()").limit(key)
   meal_enter_2_items = Location.where('address LIKE ? OR nearest_station LIKE ?', "%#{search}%", "%#{search}%").where(meal_enter_id: 3).order("random()").limit(key_b)
 
-  meal_enter_1_items.to_a + meal_enter_2_items.to_a
+  result_items = meal_enter_1_items.to_a + meal_enter_2_items.to_a
+  result_items.present? ? result_items : nil
  end
 
  end
