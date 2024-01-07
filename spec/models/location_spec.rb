@@ -168,8 +168,6 @@ RSpec.describe Location, type: :model do
         @location.valid?
         expect(@location.errors.full_messages).to include("Requires を選んでください")
       end
-
     end
-
   end
 end
