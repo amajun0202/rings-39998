@@ -93,6 +93,9 @@ https://rings.onrender.com
 ## User単体テスト
 [![Image from Gyazo](https://i.gyazo.com/365abf9148ae2fedd99d1bd282a083f0.png)](https://gyazo.com/365abf9148ae2fedd99d1bd282a083f0)
 
+## Location単体テスト
+[![Image from Gyazo](https://i.gyazo.com/e02a8705f46991ca8e67bee7614c088c.png)](https://gyazo.com/e02a8705f46991ca8e67bee7614c088c)
+
 # テーブル設計
 
 ## users テーブル
